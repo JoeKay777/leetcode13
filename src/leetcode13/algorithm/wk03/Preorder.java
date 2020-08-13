@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
-
+/**
+ * 589. N叉树的前序遍历
+ * @author qkh
+ *
+ */
 public class Preorder {
 	public List<Integer> preorder(Node root) {
 		Stack<Node> stack = new Stack<>();

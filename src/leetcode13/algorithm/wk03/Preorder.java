@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Stack;
 /**
  * 589. N叉树的前序遍历
+ * 非递归解法
  * @author qkh
  *
  */
@@ -24,9 +25,8 @@ public class Preorder {
 			
 			List<Node> children = cur.children;
 			if(children != null) {
-				Collections.reverse(children);
-				for (Node node : children) {
-					stack.push(node);
+				for(int i = children.size() -1; i >= 0 ; i--) {
+					stack.push(children.get(i));
 				}
 			}
 		}

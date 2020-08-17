@@ -36,6 +36,10 @@ public class SubsetsWithDup {
         }
     }
 
+    public static void main(String[] args) {
+        System.out.println("ffsfs");
+    }
+
 
 
 

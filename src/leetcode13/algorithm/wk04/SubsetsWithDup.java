@@ -22,7 +22,7 @@ public class SubsetsWithDup {
     }
 
     private List<List<Integer>> result = new ArrayList<>();
-w
+
     private void backtrack(int[] nums, int start, List<Integer> list) {
         result.add(new ArrayList<>(list));
 
@@ -36,10 +36,7 @@ w
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("sdfdasfds");
-        new SubsetsWithDup().subsetsWithDup(new int[] {1,2,2});
-    }
+
 
 
 }

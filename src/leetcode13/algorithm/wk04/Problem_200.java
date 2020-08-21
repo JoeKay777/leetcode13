@@ -31,10 +31,10 @@ public class Problem_200 {
             return;
         }
         grid[x][y] = '0';
-//        landToWater(x--, y, grid);
-        landToWater(x++, y, grid);
-//        landToWater(x, y--, grid);
-        landToWater(x, y++, grid);
+        landToWater(x - 1, y, grid);
+        landToWater(x + 1, y, grid);
+        landToWater(x, y - 1, grid);
+        landToWater(x, y + 1, grid);
     }
 
 }

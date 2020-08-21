@@ -25,7 +25,7 @@ public class GenerateParenthesis {
             backtrack(str+"(", left+1, right, n);
         }
         if(right > left) {
-            backtrack((str+")", left, right, n));
+            backtrack(str+")", left, right + 1, n);
         }
     }
 }

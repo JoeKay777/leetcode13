@@ -9,43 +9,37 @@ import java.util.Set;
  * 647. 回文子串
  */
 public class Problem_647 {
-    /**
-     * 层次遍历
-     *
-     * @param s
-     * @return
-     */
+
+    private String s = null;
+    private int count = 0;
+
     public int countSubstrings(String s) {
-        this.chars = s.toCharArray();
-        return subString(0);
-    }
-
-    private char[] chars = null;
-
-    private int subString(int start) {
-        if (start == chars.length) {
-            return 0;
-        }
-        int count = subString(start + 1);
-        for (int i = start; i < chars.length; i++) {
-            boolean ok = true;
-            int end = i;    // start为子串上限，i为子串上限
-            // 判断是否回文
-            for (int j = start; j < end; j++, end--) {
-                if (chars[j] != chars[end]) {
-                    ok = false;
-                    break;
-                }
-            }
-            if (ok) {
-                count++;
-            }
+        this.s = s;
+        for (int i = 0; i < s.length(); i++) {
+            countSub(i, i);
+            countSub(i, i + 1);
         }
         return count;
     }
 
+    /**
+     * 计算以start，end为中心的回文数量
+     *
+     * @param start
+     * @param end
+     */
+    private void countSub(int start, int end) {
+        for (; start >= 0 && end < s.length(); start--, end++) {
+            if (s.charAt(start) != s.charAt(end)) {
+                break;
+            }
+            count++;
+        }
+    }
+
+
     public static void main(String[] args) {
-        int aaa = new Problem_647().countSubstrings("abc");
+        int aaa = new Problem_647().countSubstrings("fdsklf");
         System.out.println(aaa);
     }
 

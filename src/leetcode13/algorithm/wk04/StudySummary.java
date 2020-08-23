@@ -32,11 +32,12 @@ public class StudySummary {
                 left = mid;
             } else {
                 // 中间值等于其中一个，最小值为其中小值
-                return nums[left] > nums[right] ? right : left;
+                left = nums[left] > nums[right] ? right : left;
+                break;
             }
 
         }
-        return -1;
+        return nums[left];
     }
 
     public static void main(String[] args) {

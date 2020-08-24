@@ -64,7 +64,6 @@ public class Day_126 {
         return result;
     }
 
-
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         List<List<String>> ladders = new Day_126().findLadders("cet",

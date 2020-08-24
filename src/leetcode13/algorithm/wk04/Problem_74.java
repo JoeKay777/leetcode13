@@ -4,6 +4,13 @@ package leetcode13.algorithm.wk04;
  * 74.搜索二维矩阵
  */
 public class Problem_74 {
+
+    /**
+     * 二维看做一维
+     * @param matrix
+     * @param target
+     * @return
+     */
     public boolean searchMatrix(int[][] matrix, int target) {
         if (matrix.length == 0) {
             return false;
@@ -12,7 +19,7 @@ public class Problem_74 {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             int y = mid % matrix[0].length;
-            int x = (mid - y) / matrix[0].length;
+            int x = mid / matrix[0].length;
             if (matrix[x][y] == target) {
                 return true;
             } else if (matrix[x][y] > target) {

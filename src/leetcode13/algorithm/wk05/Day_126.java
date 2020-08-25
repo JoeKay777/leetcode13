@@ -55,9 +55,9 @@ public class Day_126 {
             }
             wordSet.removeAll(visited); // 过滤每层访问过的word
         }
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             List<String> path = queue.poll();
-            if(path.get(path.size() -1) .equals(endWord)) { // 最后word等于endWord，即为最短路径
+            if (path.get(path.size() - 1).equals(endWord)) { // 最后word等于endWord，即为最短路径
                 result.add(path);
             }
         }

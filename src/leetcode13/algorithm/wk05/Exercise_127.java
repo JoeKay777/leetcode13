@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 127.单词接龙
  */
-public class Day_127 {
+public class Exercise_127 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         int count = 0;
 

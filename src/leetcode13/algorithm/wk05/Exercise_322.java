@@ -11,7 +11,7 @@ public class Exercise_322 {
         int[] dp = new int[coins.length];   // dp[i]表示选择第i个硬币的金额
         for (int money = 1; money < amount; money++) {
             for (int i = 0; i < coins.length; i++) {
-                dp[]
+                money - coins
             }
         }
     }

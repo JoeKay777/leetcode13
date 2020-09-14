@@ -15,48 +15,48 @@ public class HW_51 {
         boolean[] columns = new boolean[n]; // 记录已占用的纵坐标
         Set<Integer> sub = new HashSet<>(); // 记录已占用的右斜
         Set<Integer> add = new HashSet<>(); // 记录已占用的左斜
-        backtrack(0, columns, sub, add, new ArrayList<Integer>(n));
-
+        int[] queens = new int[n];
+        Arrays.fill(queens, -1);
+        backtrack(0, columns, sub, add, queens);
         return res;
     }
 
-    private void backtrack(int i, boolean[] columns, Set<Integer> sub, Set<Integer> add, List<Integer> qList) {
+    private void backtrack(int i, boolean[] columns, Set<Integer> sub, Set<Integer> add, int[] queens) {
         if (i == n) {  // 终止
-            List<String> ans = new ArrayList<>(n);
-            for (int qIdx : qList) {
-                StringBuilder sb = new StringBuilder();
-                for (int y = 0; y < n; y++) {
-                    if (y == qIdx) {
-                        sb.append("Q");
-                        continue;
-                    }
-                    sb.append(".");
-                }
-                ans.add(sb.toString());
-            }
-            res.add(ans);
+            generateAns(queens);
             return;
         }
 
         // 选择
         for (int j = 0; j < n; j++) {
-            if (columns[j]) continue;
-            if (sub.contains(i - j)) continue;
-            if (add.contains(i + j)) continue;
+            if (columns[j]) continue;   // 纵坐标冲突
+            if (sub.contains(i - j)) continue;  // 右斜冲突
+            if (add.contains(i + j)) continue;  // 左斜冲突
             columns[j] = true;
             sub.add(i - j);
             add.add(i + j);
-            qList.add(i, j);
+            queens[i] = j;
             // 回溯
-            backtrack(i + 1, columns, sub, add, qList);
+            backtrack(i + 1, columns, sub, add, queens);
             // 撤销
             columns[j] = false;
             sub.remove(i - j);
             add.remove(i + j);
-            qList.remove(i);
+            queens[i] = -1;
         }
 
 
+    }
+
+    private void generateAns(int[] queens) {
+        List<String> ans = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            char[] chars = new char[n];
+            Arrays.fill(chars, '.');
+            chars[queens[i]] = 'Q';
+            ans.add(new String(chars));
+        }
+        res.add(ans);
     }
 
 

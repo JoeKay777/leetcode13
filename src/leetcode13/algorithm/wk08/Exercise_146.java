@@ -23,6 +23,7 @@ public class Exercise_146 {
         }
 
         private int capacity;
+        private int size;
         private DLinkedNode head;
         private DLinkedNode tail;
 
@@ -30,6 +31,7 @@ public class Exercise_146 {
 
         public LRUCache(int capacity) {
             this.capacity = capacity;
+            this.size = 0;
             cache = new HashMap<>(capacity);
             head = new DLinkedNode(null, null);
             tail = new DLinkedNode(null, null);
@@ -54,7 +56,6 @@ public class Exercise_146 {
 
         // 移动到头部
         private void addToHead(DLinkedNode node) {
-            cache.put(node.key, node);
             node.prev = head;
             node.next = head.next;
             head.next.prev = node;
@@ -67,9 +68,13 @@ public class Exercise_146 {
                 node = new DLinkedNode(key, value);
                 // 已满移除最后
                 if (capacity == cache.size()) {
+                    cache.remove(tail.prev.key);
                     remove(tail.prev);
+                    size--;
                 }
+                cache.put(node.key, node);
                 addToHead(node);
+                size++;
             } else {
                 node.val = value;
                 moveToHead(node);
@@ -77,7 +82,6 @@ public class Exercise_146 {
         }
 
         private void remove(DLinkedNode node) {
-            cache.remove(node.key);
             node.prev.next = node.next;
             node.next.prev = node.prev;
         }

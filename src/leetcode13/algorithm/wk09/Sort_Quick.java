@@ -40,6 +40,8 @@ public class Sort_Quick {
                 194, 117, 98, 139, 67, 133, 181, 12, 28, 0, 109};
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
+
+        System.out.println(-2<<1 |1);
     }
 
 }

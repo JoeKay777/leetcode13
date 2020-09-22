@@ -35,14 +35,14 @@ public class Sort_Quick {
         if (left >= right) return;
         int pivot = arr[left], i = left, j = right;
         while (i < j) {
-            while (arr[i] <= pivot && i < j) {  // 这种写法，不需优先从右边开始
-                i++;
-            }
-            arr[j] = arr[i];
             while (arr[j] >= pivot && i < j) {
                 j--;
             }
             arr[i] = arr[j];
+            while (arr[i] <= pivot && i < j) {
+                i++;
+            }
+            arr[j] = arr[i];
         }
         arr[i] = pivot;
         quickSort(arr, left, i - 1);

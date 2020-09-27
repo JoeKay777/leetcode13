@@ -10,7 +10,7 @@ public class Exercise_85 {
     /**
      * height[j] 记录[x,j]列最大高度
      * left[j]  记录[x,j]列左边界下标 （k = j->0 第一个matrix[x][k] == 0的坐标 k + 1）
-     * right[j] 记录[x,j]列右边界下标 （k = j->n 第一个matrix[x][k] == 0的坐标k， 包含0便于计算面积）
+     * right[j] 记录[x,j]列右边界下标 （k = j->m 第一个matrix[x][k] == 0的坐标k， 包含0便于计算面积）
      * area = height[j] * (right[j] - left[j])
      *
      * @param matrix
@@ -21,7 +21,7 @@ public class Exercise_85 {
         int m = matrix[0].length;
         int[] height = new int[m];
         int[] left = new int[m];    // 初始化为0
-        int[] right = new int[m];   // 初始化为n
+        int[] right = new int[m];   // 初始化为m
         Arrays.fill(right, m);
 
         int maxArea = 0;
